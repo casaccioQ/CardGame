@@ -17,7 +17,7 @@ func NewDeck() Deck {
 	return d
 }
 
-func (d Deck) show() {
+func (d Deck) Show() {
 	for i, card := range d {
 		fmt.Println(i+1, card)
 	}
