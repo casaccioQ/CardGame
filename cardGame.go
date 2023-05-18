@@ -3,6 +3,7 @@ package CardGame
 import (
 	"fmt"
 	"math/rand"
+	"strings"
 	"time"
 )
 
@@ -40,4 +41,8 @@ func (d Deck) Shuffle() {
 		j := r.Intn(n)
 		d[i], d[j] = d[j], d[i]
 	}
+}
+
+func (d Deck) ToString() string {
+	return strings.Join([]string(d), ",")
 }
