@@ -1,6 +1,10 @@
 package CardGame
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 type Deck []string
 
@@ -20,5 +24,20 @@ func NewDeck() Deck {
 func (d Deck) Show() {
 	for i, card := range d {
 		fmt.Println(i+1, card)
+	}
+}
+
+func Deal(d Deck, handsize int) (Deck, Deck) {
+	return d[:handsize], d[handsize:]
+}
+
+func (d Deck) Shuffle() {
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
+	n := len(d)
+	for i := 0; i < n; i++ {
+		j := r.Intn(n)
+		d[i], d[j] = d[j], d[i]
 	}
 }
