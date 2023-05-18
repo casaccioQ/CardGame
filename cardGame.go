@@ -46,3 +46,7 @@ func (d Deck) Shuffle() {
 func (d Deck) ToString() string {
 	return strings.Join([]string(d), ",")
 }
+
+func Version() string {
+	return "Version 1.1.0!"
+}
